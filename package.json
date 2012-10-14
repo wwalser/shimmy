@@ -1,0 +1,35 @@
+{
+  "name": "Shimmy",
+  "description": "Shimmy is a simple way to shim methods which will be made fully available later on the page.",
+  "version": "0.1.0",
+  "homepage": "http://github.com/wwalser/shimmy",
+  "author": {
+    "name": "Wesley Walser",
+    "email": "waw325@gmail.com",
+    "url": "http://github.com/wwalser"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wwalser/shimmy.git"
+  },
+  "bugs": {
+    "url": "http://github.com/wwalser/shimmy/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/wwalser/shimmy/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/shimmy",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.15"
+  },
+  "keywords": []
+}
