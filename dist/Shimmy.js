@@ -1,4 +1,4 @@
-/*! Shimmy - v0.1.0 - 2012-10-14
+/*! Shimmy - v0.1.1 - 2012-11-08
 * http://github.com/wwalser/shimmy
 * Copyright (c) 2012 Wesley Walser; Licensed MIT */
 
@@ -43,14 +43,15 @@
 		}
 		
 		//array for storing calls to this shim
-		var shimCalls = [];
+		var shimCalls = [],
+			//implementation here so that the closed variable can be changed when .replace() is called.
+			shimImplementation = function(){
+				shimCalls.push({context: this, args: arguments});				
+			};
 		
 		//create the shim
 		var shim = namespace[shimName] = function(){
-			var shimContext = this,
-				args = arguments;
-			
-			shimCalls.push({context: shimContext, args: args});
+			shimImplementation.apply(this, arguments);
 		};
 		//keep a list of all shims created by this instance.
 		shims[fullName] = shim;
@@ -62,7 +63,7 @@
 			for (var i = 0, length = shimCalls.length; i < length; i++) {
 				implementation.apply(shimCalls[i].context, shimCalls[i].args);
 			}
-			namespace[shimName] = implementation;
+			shimImplementation = implementation;
 		};
 		
 		//return so it can be captured in a variable

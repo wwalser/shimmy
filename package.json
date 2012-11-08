@@ -1,7 +1,7 @@
 {
   "name": "Shimmy",
   "description": "Shimmy is a simple way to shim methods which will be made fully available later on the page.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://github.com/wwalser/shimmy",
   "author": {
     "name": "Wesley Walser",

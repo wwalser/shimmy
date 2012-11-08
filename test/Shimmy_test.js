@@ -78,6 +78,20 @@ exports['Shimmy'] = {
 		shim();
 		shim = shim.replace(replaceFunction);
 	},
+	'All instances of shim are replaced correctly': function(test) {
+		//Number of assertions is key to this test.
+		test.expect(2);
+		var shimName = '$',
+			shim = Shimmy.shim(shimName),
+			replaceFunction = function(message){
+				test.ok(true, message);
+			};
+
+		shim.replace(replaceFunction);
+		Shimmy.$('Namespace level function should run the replaced function.');
+		shim('All stored references to the shim should also run the replaced function.');
+		test.done();
+	},
 	'Parameter sent to replaced function': function(test) {
 		test.expect(1);
 		var shimName = '$',
